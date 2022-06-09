@@ -1,0 +1,5 @@
+#! /bin/sh
+
+source ./bin/common
+
+docker build -t $URBANBELONGING_DOCKER_IMAGE_NAME --build-arg GIT_COMMIT_SHA=$GIT_COMMIT_SHA .

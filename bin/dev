@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source ./bin/common
+
+export SPACES_CDN_ACCESS_KEY_ID="$URBANBELONGING_SPACES_CDN_ACCESS_KEY_ID"
+export SPACES_CDN_SECRET_ACCESS_KEY="$URBANBELONGING_SPACES_CDN_SECRET_ACCESS_KEY"
+export DEBUG="PhotoEventMonitor,PhotoProcessing,PhotoEventWalk,Push"
+export NODE_ENV="local"
+export JWT_SIGNING_KEY=$(cat `dirname $0`/../id_rsa.pub)
+export API_KEY_JSON_PATH="`dirname $0`/../api-keys.json"
+export MONGODB_CONNECTION_URI="mongodb://localhost/urbanbelonging-api"
+export REDIS_HOST="localhost"
+export SENDGRID_API_KEY="$URBANBELONGING_SENDGRID_API_KEY"
+
+./node_modules/.bin/tsc-watch --onSuccess "node --inspect=0.0.0.0:9228 ."

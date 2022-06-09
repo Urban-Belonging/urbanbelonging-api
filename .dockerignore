@@ -1,0 +1,9 @@
+.git
+node_modules
+build
+.vscode
+.crawler-cache
+id_rsa
+id_rsa.pub
+yarn-error.log
+api-keys.json
